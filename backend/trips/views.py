@@ -303,7 +303,10 @@ def calculate_trip(request):
     if total_miles < 1:
         return Response({"error": "Locations are too close or identical."}, status=drf_status.HTTP_400_BAD_REQUEST)
 
-    events = simulate_trip(total_miles, cycle_used)
+    leg1_data    = get_route_osrm([geo_current, geo_pickup]) or straight_line_route([geo_current, geo_pickup])
+    pickup_miles = leg1_data["distance_miles"]
+
+    events = simulate_trip(total_miles, cycle_used, pickup_miles=pickup_miles)
     result = build_response(events, total_miles)
 
     inject_stop_coords(result["stops"], waypoints, route_coords, total_miles)
