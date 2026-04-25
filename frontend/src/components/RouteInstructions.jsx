@@ -132,8 +132,8 @@ export default function RouteInstructions({ events, route, summary }) {
         {steps.map((step, i) => {
           const meta = STEP_META[step.type] || STEP_META.drive;
           const isStop = step.type !== 'drive';
-          const milesAtStep = step.miles ?? cumMiles;
           if (step.type === 'drive') cumMiles += step.miles || 0;
+          const milesAtStep = step.type === 'drive' ? cumMiles : (step.miles ?? cumMiles);
 
           return (
             <div

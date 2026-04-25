@@ -311,6 +311,12 @@ def calculate_trip(request):
 
     inject_stop_coords(result["stops"], waypoints, route_coords, total_miles)
 
+    for stop in result["stops"]:
+        if stop["type"] == "pickup":
+            stop["coordinates"] = [geo_pickup[1], geo_pickup[0]]
+        elif stop["type"] == "dropoff":
+            stop["coordinates"] = [geo_dropoff[1], geo_dropoff[0]]
+
     result["route"] = {
         "coordinates":    route_coords,
         "distance_miles": round(total_miles, 1),
