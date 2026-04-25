@@ -1,5 +1,6 @@
 import math
 import requests
+from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status as drf_status
@@ -171,6 +172,8 @@ CITY_COORDS = {
     "amarillo": (35.2220, -101.8313),
 }
 
+def health_check(request):
+    return JsonResponse({"status": "ok"})
 
 def geocode(location: str):
     """Nominatim first, then built-in dict."""

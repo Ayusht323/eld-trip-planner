@@ -3,6 +3,6 @@ builder = "nixpacks"
 
 [deploy]
 startCommand = "gunicorn trip_planner.wsgi --bind 0.0.0.0:$PORT"
-healthcheckPath = "/api/calculate-trip/"
+healthcheckPath = "/api/health/"
 healthcheckTimeout = 300
 restartPolicyType = "on_failure"
