@@ -1,0 +1,60 @@
+/* ── ELD Trip Planner — Industrial Dispatch Aesthetic ──────────────────────── */
+
+:root {
+  --ink:        #0a0a0f;
+  --paper:      #f5f2eb;
+  --amber:      #e8a020;
+  --amber-dim:  #b87a10;
+  --amber-glow: rgba(232,160,32,0.15);
+  --steel:      #2a2d3a;
+  --steel-mid:  #3d4255;
+  --steel-lite: #565c78;
+  --rust:       #c44b2a;
+  --sage:       #4a7c5f;
+  --fog:        rgba(245,242,235,0.06);
+  --border:     rgba(245,242,235,0.12);
+  --border-hi:  rgba(232,160,32,0.4);
+  --radius:     4px;
+  --mono:       'DM Mono', monospace;
+  --display:    'Syne', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--display);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scanline texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────────*/
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--steel); }
+::-webkit-scrollbar-thumb { background: var(--amber-dim); border-radius: 3px; }
+
+/* ── Typography ──────────────────────────────────────────────────────────────*/
+h1, h2, h3, h4, h5 { font-family: var(--display); font-weight: 700; }
+code, .mono { font-family: var(--mono); }
+
+/* ── Utility ─────────────────────────────────────────────────────────────────*/
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }

@@ -1,0 +1,74 @@
+.eld-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.eld-canvas-wrapper {
+  overflow-x: auto;
+  background: #f5f2eb;
+  border-radius: 4px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.eld-canvas {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Segment Table ───────────────────────────────────────────────────────── */
+.eld-segment-table {
+  background: var(--steel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.seg-table-header {
+  display: grid;
+  grid-template-columns: 130px 70px 70px 80px 1fr;
+  gap: 0;
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.3);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--paper);
+  opacity: 0.5;
+  border-bottom: 1px solid var(--border);
+}
+
+.seg-row {
+  display: grid;
+  grid-template-columns: 130px 70px 70px 80px 1fr;
+  gap: 0;
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  transition: background 0.1s;
+}
+
+.seg-row:last-child { border-bottom: none; }
+.seg-row:hover { background: var(--fog); }
+
+.seg-status {
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+.seg-time {
+  color: var(--paper);
+  opacity: 0.7;
+}
+
+.seg-dur {
+  color: var(--amber);
+  font-weight: 500;
+}
+
+.seg-note {
+  color: var(--paper);
+  opacity: 0.5;
+}
