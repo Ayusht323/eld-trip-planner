@@ -29,6 +29,7 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = True  # tighten in production
 
 ROOT_URLCONF = "trip_planner.urls"
+WSGI_APPLICATION = "trip_planner.wsgi.application"
 
 TEMPLATES = [
     {
